@@ -110,19 +110,19 @@ const App = () => {
   }
 
   return (
-    <main className=' bg-white md:bg-very-light-grayish-blue h-screen font-sans px-5 mt-6 md:mt-0 md:flex md:items-center md:justify-center md:flex-col'>
-      <div className='  md:bg-white max-w-[730px] md:shadow-2xl md:shadow-black/5 md:p-8 md:pt-10 rounded-2xl'>
-        <div className=' flex justify-between items-center'>
-          <div className=' flex gap-x-2 items-center'>
-            <h1 className=' text-2xl font-bold'>Notifications</h1>
+    <main className='bg-white md:bg-very-light-grayish-blue h-screen font-sans px-5 mt-6 md:mt-0 md:flex md:items-center md:justify-center md:flex-col'>
+      <div className=' md:bg-white max-w-[730px] md:shadow-2xl md:shadow-black/5 md:p-8 md:pt-10 rounded-2xl'>
+        <div className='flex justify-between items-center'>
+          <div className='flex gap-x-2 items-center'>
+            <h1 className='text-2xl font-bold'>Notifications</h1>
             {unRead > 0 &&
-              <div className=' bg-blue text-white px-3 rounded-lg font-semibold'>
+              <div className='bg-blue text-white px-3 rounded-lg font-semibold'>
                 <span>{unRead}</span>
               </div>
             }
           </div>
           {unRead > 0 &&
-            <button onClick={handleMarkAsRead} className=' cursor-pointer text-dark-grayish-blue'>Mark all as read</button>
+            <button onClick={handleMarkAsRead} className='cursor-pointer text-dark-grayish-blue'>Mark all as read</button>
           }
         </div>
 
@@ -130,18 +130,18 @@ const App = () => {
           {notificacionArr.map((item, index) => {
             return (
               <div key={index} className={`${item.isRead ? '' : ' bg-light-grayish-blue-1/40'} rounded-xl p-4 flex gap-x-3 justify-between`}>
-                <img className=' w-10 h-10' src={item.profile} alt="" />
-                <div className=' text-dark-grayish-blue flex-1'>
+                <img className='w-10 h-10' src={item.profile} alt="" />
+                <div className='text-dark-grayish-blue flex-1'>
                   <span>
-                    <a href='#' className=' hover:text-blue hover:font-bold font-semibold text-black'>{item.name} </a>
+                    <a href='#' aria-label={`Profile ${item.name}`} className='hover:text-blue hover:font-bold font-semibold text-black'>{item.name} </a>
                     {item.info}
-                    <a href='#' className=' text-blue hover:font-bold'> {item.focus}</a>
-                    {!item.isRead && <span className=' text-red'> ●</span>}
+                    <a href='#' aria-label={`Read more about ${item.focus}`} className='text-blue hover:font-bold'> {item.focus}</a>
+                    {!item.isRead && <span className='text-red'> ●</span>}
                   </span>
                   <div>
                     <span>{item.ago} ago</span>
                     {item.message &&
-                      <div className=' cursor-pointer hover:bg-light-grayish-blue-1 hover:border-white text-sm p-3 border-2 rounded-lg mt-2'>
+                      <div className='cursor-pointer hover:bg-light-grayish-blue-1 hover:border-white text-sm p-3 border-2 rounded-lg mt-2'>
                         {item.message}
                       </div>
                     }
@@ -149,7 +149,7 @@ const App = () => {
                 </div>
                 {item.photo &&
                   <div>
-                    <img className=' h-10 w-10' src={item.photo} alt="" />
+                    <img className='h-10 w-10' src={item.photo} alt="" />
                   </div>
                 }
               </div>
