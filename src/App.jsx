@@ -115,15 +115,11 @@ const App = () => {
         <div className='flex justify-between items-center'>
           <div className='flex gap-x-2 items-center'>
             <h1 className='text-2xl font-bold'>Notifications</h1>
-            {unRead > 0 &&
-              <div className='bg-blue text-white px-3 rounded-lg font-semibold'>
-                <span>{unRead}</span>
-              </div>
-            }
+            <div className={`${unRead === 0 ? ' bg-dark-grayish-blue' : 'bg-blue'} text-white px-3 rounded-lg font-semibold`}>
+              <span>{unRead === 0 ? '0' : unRead}</span>
+            </div>
           </div>
-          {unRead > 0 &&
-            <button onClick={handleMarkAsRead} className='cursor-pointer text-dark-grayish-blue'>Mark all as read</button>
-          }
+          <button onClick={handleMarkAsRead} className={`${unRead === 0 ? ' cursor-default' : ' cursor-pointer hover:text-very-dark-blue'} text-dark-grayish-blue`}>{unRead === 0 ? 'All messages read' : 'Mark all as read'}</button>
         </div>
 
         <div className='flex flex-col gap-y-3 mt-5'>
